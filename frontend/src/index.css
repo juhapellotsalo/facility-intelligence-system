@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  /* Background Layers (Dark → Light) */
+  --color-bg-base: #111217;
+  --color-bg-surface: #181b1f;
+  --color-bg-raised: #1e2028;
+  --color-bg-border: #2a2d32;
+  --color-bg-hover: #2f333a;
+
+  /* Text Hierarchy */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #c8cdd3;
+  --color-text-muted: #6e7781;
+  --color-text-disabled: #444c56;
+
+  /* Status Colors */
+  --color-status-normal: #73bf69;
+  --color-status-normal-bg: rgba(115, 191, 105, 0.12);
+  --color-status-warning: #fade2a;
+  --color-status-warning-bg: rgba(250, 222, 42, 0.12);
+  --color-status-critical: #ff4444;
+  --color-status-critical-bg: rgba(255, 68, 68, 0.12);
+
+  /* Accent Colors */
+  --color-accent-blue: #5794f2;
+  --color-accent-cyan: #6ec8e0;
+  --color-accent-orange: #ff9830;
+  --color-accent-purple: #b877d9;
+
+  /* Typography */
+  --font-sans:
+    "Inter Variable", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono:
+    "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  --default-font-family: var(--font-sans);
+
+  /* Spacing Scale */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 16px;
+  --spacing-4: 24px;
+  --spacing-5: 32px;
+  --spacing-6: 48px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+/* Animation Timing */
+:root {
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Visible */
+:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+/* Warning Pulse Animation */
+@keyframes warning-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(250, 222, 42, 0);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba(250, 222, 42, 0.15);
+  }
+}
+
+@keyframes critical-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
+  }
+  50% {
+    box-shadow: 0 0 10px 3px rgba(255, 68, 68, 0.2);
+  }
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Blueprint Grid Background */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(87, 148, 242, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87, 148, 242, 0.035) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
